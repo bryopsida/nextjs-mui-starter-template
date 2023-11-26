@@ -1,0 +1,18 @@
+{
+  "testPathIgnorePatterns": ["node_modules", "tests"],
+  "collectCoverage": true,
+  "collectCoverageFrom": [
+    "**/*.js",
+    "!**/*.config.js",
+    "!**/*.spec.js",
+    "!**/lcov-report/*",
+    "!**/node_modules/**"
+  ],
+  "coverageThreshold": {
+    "global": {
+      "branches": 50,
+      "functions": 50,
+      "lines": 70
+    }
+  }
+}
