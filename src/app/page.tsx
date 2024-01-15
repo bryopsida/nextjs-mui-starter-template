@@ -62,7 +62,7 @@ export default function HomePage() {
         <List sx={{ px: 2 }}>
           <ListItem disablePadding>
             <Typography variant="overline" sx={{ fontWeight: 500 }}>
-              On this page
+              Side Panel Drawer
             </Typography>
           </ListItem>
         </List>

@@ -13,30 +13,26 @@ import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
 import DashboardIcon from '@mui/icons-material/Dashboard'
 import HomeIcon from '@mui/icons-material/Home'
-import StarIcon from '@mui/icons-material/Star'
 import ChecklistIcon from '@mui/icons-material/Checklist'
 import SettingsIcon from '@mui/icons-material/Settings'
-import SupportIcon from '@mui/icons-material/Support'
 import LogoutIcon from '@mui/icons-material/Logout'
 import ThemeRegistry from '@/components/ThemeRegistry/ThemeRegistry'
 
 export const metadata = {
-  title: 'Next.js App Router + Material UI v5',
-  description: 'Next.js App Router + Material UI v5'
+  title: 'Next.js MUI Starter Template',
+  description: 'Next.js App Router + Material UI v5 Starter Template'
 }
 
 const DRAWER_WIDTH = 240
 
 const LINKS = [
   { text: 'Home', href: '/', icon: HomeIcon },
-  { text: 'Starred', href: '/starred', icon: StarIcon },
-  { text: 'Tasks', href: '/tasks', icon: ChecklistIcon }
+  { text: 'Users', href: '/users', icon: ChecklistIcon }
 ]
 
-const PLACEHOLDER_LINKS = [
-  { text: 'Settings', icon: SettingsIcon },
-  { text: 'Support', icon: SupportIcon },
-  { text: 'Logout', icon: LogoutIcon }
+const BOTTOM_LINKS = [
+  { text: 'Settings', href: '/settings', icon: SettingsIcon },
+  { text: 'Logout', href: '/logout', icon: LogoutIcon }
 ]
 
 export default function RootLayout({
@@ -88,9 +84,9 @@ export default function RootLayout({
             </List>
             <Divider sx={{ mt: 'auto' }} />
             <List>
-              {PLACEHOLDER_LINKS.map(({ text, icon: Icon }) => (
+              {BOTTOM_LINKS.map(({ text, href, icon: Icon }) => (
                 <ListItem key={text} disablePadding>
-                  <ListItemButton>
+                  <ListItemButton component={Link} href={href}>
                     <ListItemIcon>
                       <Icon />
                     </ListItemIcon>
