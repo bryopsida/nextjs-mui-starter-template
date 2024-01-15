@@ -13,7 +13,7 @@ import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
 import DashboardIcon from '@mui/icons-material/Dashboard'
 import HomeIcon from '@mui/icons-material/Home'
-import ChecklistIcon from '@mui/icons-material/Checklist'
+import UsersIcon from '@mui/icons-material/People'
 import SettingsIcon from '@mui/icons-material/Settings'
 import LogoutIcon from '@mui/icons-material/Logout'
 import ThemeRegistry from '@/components/ThemeRegistry/ThemeRegistry'
@@ -27,7 +27,7 @@ const DRAWER_WIDTH = 240
 
 const LINKS = [
   { text: 'Home', href: '/', icon: HomeIcon },
-  { text: 'Users', href: '/users', icon: ChecklistIcon }
+  { text: 'Users', href: '/users', icon: UsersIcon }
 ]
 
 const BOTTOM_LINKS = [

@@ -15,7 +15,7 @@ export default function TasksPage() {
         }}
       >
         <Typography variant="body1" gutterBottom>
-          Tasks Page
+          Users Page
         </Typography>
       </Box>
     </Container>
