@@ -1,9 +1,10 @@
 import { UserDTO } from '@/dtos/user'
 import { createChildLogger } from '@/factories/logger'
 import { users } from '@/db/schema'
-import { eq } from 'drizzle-orm'
+import { count, eq } from 'drizzle-orm'
 
 import cryptoService from '@/services/crypto'
+import { IPaginatedResult } from '@/models/PaginatedResult'
 
 const logger = createChildLogger({
   module: 'service/user'
@@ -18,9 +19,32 @@ export interface IUserService {
     email: string
   ): Promise<UserDTO>
   getUser(username: string): Promise<UserDTO | null>
+  getUserPage(offset: number, count: number): Promise<IPaginatedResult<UserDTO>>
 }
 
 export class UserService implements IUserService {
+  async getUserPage(
+    offset: number,
+    pageSize: number
+  ): Promise<IPaginatedResult<UserDTO>> {
+    const { db } = await import('../db/db')
+    const result = await db
+      .select()
+      .from(users)
+      .orderBy(users.username)
+      .limit(pageSize)
+      .offset(offset)
+    const totalCount = await db.select({ value: count() }).from(users)
+    return {
+      data: result.map((u: any) => {
+        u.id = u.id.toString()
+        return u
+      }),
+      totalRows: totalCount[0].value,
+      offset: offset,
+      count: pageSize
+    }
+  }
   async getUser(username: string): Promise<UserDTO | null> {
     const { db } = await import('../db/db')
     const user = await db

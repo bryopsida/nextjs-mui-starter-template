@@ -1,23 +1,40 @@
 import * as React from 'react'
 import Container from '@mui/material/Container'
-import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
+import Button from '@mui/material/Button'
+import UserTable from './userTable'
+import { UserService } from '@/services/user'
+import Link from 'next/link'
+import PersonAddIcon from '@mui/icons-material/PersonAdd'
 
-export default function TasksPage() {
+const usersService = new UserService()
+
+export default async function UsersPage({
+  searchParams
+}: {
+  readonly searchParams?: { [key: string]: string | string[] | undefined }
+}) {
+  const offset = (searchParams?.offset as string) ?? '0'
+  const count = (searchParams?.count as string) ?? '10'
+  const users = await usersService.getUserPage(
+    parseInt(offset),
+    parseInt(count)
+  )
   return (
     <Container>
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center'
-        }}
+      <UserTable
+        users={users.data}
+        count={users.count}
+        offset={users.offset}
+        totalUsers={users.totalRows}
+      />
+      <Button
+        component={Link}
+        href="/users/add"
+        startIcon={<PersonAddIcon />}
+        variant="contained"
       >
-        <Typography variant="body1" gutterBottom>
-          Users Page
-        </Typography>
-      </Box>
+        Add User
+      </Button>
     </Container>
   )
 }

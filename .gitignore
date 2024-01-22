@@ -6,3 +6,4 @@ tmp/
 temp/
 .next
 .env.local
+!.vscode

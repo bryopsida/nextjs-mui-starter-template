@@ -14,9 +14,9 @@ import ListItemText from '@mui/material/ListItemText'
 import DashboardIcon from '@mui/icons-material/Dashboard'
 import HomeIcon from '@mui/icons-material/Home'
 import UsersIcon from '@mui/icons-material/People'
-import SettingsIcon from '@mui/icons-material/Settings'
-import LogoutIcon from '@mui/icons-material/Logout'
 import ThemeRegistry from '@/components/ThemeRegistry/ThemeRegistry'
+import { LogoutButton } from '@/components/LogoutButton'
+import PageTitle from '@/components/PageTitle'
 
 export const metadata = {
   title: 'Next.js MUI Starter Template',
@@ -28,11 +28,6 @@ const DRAWER_WIDTH = 240
 const LINKS = [
   { text: 'Home', href: '/', icon: HomeIcon },
   { text: 'Users', href: '/users', icon: UsersIcon }
-]
-
-const BOTTOM_LINKS = [
-  { text: 'Settings', href: '/settings', icon: SettingsIcon },
-  { text: 'Logout', href: '/logout', icon: LogoutIcon }
 ]
 
 export default function RootLayout({
@@ -50,8 +45,13 @@ export default function RootLayout({
                 sx={{ color: '#444', mr: 2, transform: 'translateY(-2px)' }}
               />
               <Typography variant="h6" color="text.primary">
-                Next.js App Router
+                Next.js Starter Template
               </Typography>
+              <Box
+                sx={{ display: 'flex', flexGrow: 1, justifyContent: 'center' }}
+              >
+                <PageTitle />
+              </Box>
             </Toolbar>
           </AppBar>
           <Drawer
@@ -84,16 +84,7 @@ export default function RootLayout({
             </List>
             <Divider sx={{ mt: 'auto' }} />
             <List>
-              {BOTTOM_LINKS.map(({ text, href, icon: Icon }) => (
-                <ListItem key={text} disablePadding>
-                  <ListItemButton component={Link} href={href}>
-                    <ListItemIcon>
-                      <Icon />
-                    </ListItemIcon>
-                    <ListItemText primary={text} />
-                  </ListItemButton>
-                </ListItem>
-              ))}
+              <LogoutButton />
             </List>
           </Drawer>
           <Box
