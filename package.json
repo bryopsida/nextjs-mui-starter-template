@@ -11,7 +11,8 @@
     "test:unit": "jest",
     "test:e2e": "playwright test",
     "test": "npm run test:unit && npm run test:e2e",
-    "generate:migrations": "drizzle-kit generate:sqlite --config=./src/db/drizzle.config.ts"
+    "generate:migrations": "drizzle-kit generate:sqlite --config=./src/db/drizzle.config.ts",
+    "commit": "cz"
   },
   "dependencies": {
     "@casl/ability": "^6.5.0",
@@ -43,6 +44,8 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "babel-jest": "^29.7.0",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "drizzle-kit": "^0.21.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
@@ -55,6 +58,11 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
   }
 }
