@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint && prettier .",
+    "lint": "next lint && prettier . --check",
     "lint:fix": "next lint --fix && prettier --write .",
     "test:unit": "jest",
     "test:e2e": "playwright test",
@@ -55,12 +55,6 @@
     "jest-environment-jsdom": "^29.7.0",
     "prettier": "^3.1.0",
     "typescript": "^5"
-  },
-  "husky": {
-    "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true",
-      "pre-commit": "npm run lint"
-    }
   },
   "config": {
     "commitizen": {
