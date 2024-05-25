@@ -1,0 +1,26 @@
+{
+    "name": "Node.js",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "runArgs": ["--network=host"],
+    "features": {
+    },
+    "customizations": {
+      "vscode": {
+        "extensions": [
+        ],
+        "settings": {
+          "terminal.integrated.profiles.linux": {
+            "zsh": {
+              "path": "/usr/bin/zsh"
+            }
+          },
+          "terminal.integrated.defaultProfile.linux": "zsh"
+        }
+      }
+    },
+    "forwardPorts": [
+      3000
+    ]
+  }
