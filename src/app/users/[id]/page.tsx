@@ -11,12 +11,7 @@ import userService from '@/services/user'
 
 let title = `User -`
 
-export default async function UserPage({
-  params,
-}: {
-  params: { id: number };
-}) {
-  
+export default async function UserPage({ params }: { params: { id: number } }) {
   const user = await userService.getById(params.id)
   return (
     <Container>

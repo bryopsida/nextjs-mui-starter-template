@@ -46,7 +46,7 @@ export class UserService implements IUserService {
     }
   }
   async getById(id: number): Promise<UserDTO | null> {
-    const { db } =  await import('../db/db')
+    const { db } = await import('../db/db')
     const user = await db.select().from(users).where(eq(users.id, id))
     const dbRow = user[0]
     return {

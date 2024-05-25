@@ -1,26 +1,26 @@
 {
-    "name": "Node.js",
-    "build": {
-        "dockerfile": "Dockerfile"
-    },
-    "runArgs": ["--network=host"],
-    "features": {
-    },
-    "customizations": {
-      "vscode": {
-        "extensions": [
-        ],
-        "settings": {
-          "terminal.integrated.profiles.linux": {
-            "zsh": {
-              "path": "/usr/bin/zsh"
-            }
-          },
-          "terminal.integrated.defaultProfile.linux": "zsh"
-        }
+  "name": "Node.js",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "features": {},
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-docker",
+        "esbenp.prettier-vscode",
+        "ms-playwright.playwright",
+        "github.vscode-github-actions"
+      ],
+      "settings": {
+        "terminal.integrated.profiles.linux": {
+          "zsh": {
+            "path": "/usr/bin/zsh"
+          }
+        },
+        "terminal.integrated.defaultProfile.linux": "zsh"
       }
-    },
-    "forwardPorts": [
-      3000
-    ]
-  }
+    }
+  },
+  "forwardPorts": [3000]
+}
