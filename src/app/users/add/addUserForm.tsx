@@ -61,7 +61,7 @@ export default function AddUserForm() {
       router.push('/users')
     } catch (err) {
       if (err instanceof FormError) {
-        err.issues.forEach((i) => {
+        err?.issues?.forEach((i) => {
           i.path.forEach((p) => {
             switch (p) {
               case 'lastName':

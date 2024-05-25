@@ -3,12 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prepare": "husky",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint && prettier .",
+    "lint": "next lint && prettier . --check",
     "lint:fix": "next lint --fix && prettier --write .",
-    "generate:migrations": "drizzle-kit generate:sqlite --config=./src/db/drizzle.config.ts"
+    "test:unit": "jest",
+    "test:e2e": "playwright test",
+    "test": "npm run test:unit && npm run test:e2e",
+    "generate:migrations": "drizzle-kit generate:sqlite --config=./src/db/drizzle.config.ts",
+    "commit": "git add . && git commit"
   },
   "dependencies": {
     "@casl/ability": "^6.5.0",
@@ -27,15 +32,33 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.24.6",
+    "@babel/preset-env": "^7.24.6",
+    "@babel/preset-react": "^7.24.6",
+    "@babel/preset-typescript": "^7.24.6",
+    "@jest/globals": "^29.7.0",
+    "@playwright/test": "^1.44.1",
+    "@testing-library/jest-dom": "^6.4.5",
+    "@testing-library/react": "^15.0.7",
     "@types/better-sqlite3": "^7.6.8",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "babel-jest": "^29.7.0",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "drizzle-kit": "^0.21.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
+    "husky": "^9.0.11",
     "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "prettier": "^3.1.0",
     "typescript": "^5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
