@@ -13,7 +13,7 @@
     "test:e2e": "playwright test",
     "test": "npm run test:unit && npm run test:e2e",
     "generate:migrations": "drizzle-kit generate:sqlite --config=./src/db/drizzle.config.ts",
-    "commit": "cz"
+    "commit": "git add . && git commit"
   },
   "dependencies": {
     "@casl/ability": "^6.5.0",
