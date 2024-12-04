@@ -19,7 +19,7 @@
     "@mui/material": "^6.0.0",
     "argon2": "^0.41.0",
     "better-sqlite3": "^11.0.0",
-    "drizzle-orm": "^0.36.0",
+    "drizzle-orm": "^0.37.0",
     "next-auth": "^4.24.5",
     "pino": "^9.0.0",
     "react": "^18",
