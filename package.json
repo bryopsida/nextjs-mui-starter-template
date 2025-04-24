@@ -17,7 +17,7 @@
     "@fontsource/roboto": "^5.0.8",
     "@mui/icons-material": "^7.0.0",
     "@mui/material": "^7.0.0",
-    "argon2": "^0.41.0",
+    "argon2": "^0.43.0",
     "better-sqlite3": "^11.0.0",
     "drizzle-orm": "^0.42.0",
     "next-auth": "^4.24.5",
